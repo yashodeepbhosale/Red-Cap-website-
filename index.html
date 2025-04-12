@@ -1,244 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Red Cap - Smart Railway Sahayak Booking</title>
-  <style>
-    :root {
-      --red: #e53935;
-      --maroon: #800000;
-      --light-red: #ffe5e5;
-    }
+:root {
+  --red: #e53935;
+  --maroon: #800000;
+  --light-red: #ffe5e5;
+  --dark-maroon: #660000;
+}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background-color: #ffffff;
-      color: #333;
-    }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #ffffff;
+  color: #333;
+}
 
-    header {
-      background-color: var(--red);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
+header {
+  background-color: var(--red);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-    header h1 {
-      font-size: 2.5em;
-      margin: 0;
-    }
+header img {
+  width: 80px; /* Adjust the size */
+  height: auto;
+  margin-bottom: 20px;
+}
 
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
 
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 25px 0 0;
-      flex-wrap: wrap;
-    }
+header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
 
-    nav ul li {
-      margin: 10px 20px;
-    }
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 0;
+  flex-wrap: wrap;
+}
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1em;
-      padding-bottom: 2px;
-      border-bottom: 2px solid transparent;
-      transition: all 0.3s ease-in-out;
-    }
+nav ul li {
+  margin: 10px 20px;
+}
 
-    nav ul li a:hover {
-      border-color: white;
-    }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+nav ul li a:hover {
+  border-color: white;
+}
 
-    #about .info-boxes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
+/* New styling for the button and sections */
+.book-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: var(--maroon);
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 40px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-    .info-box {
-      flex: 1;
-      min-width: 300px;
-      background-color: var(--light-red);
-      border-left: 6px solid var(--red);
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
-    }
+.book-button:hover {
+  background-color: var(--dark-maroon);
+  transform: scale(1.1);
+}
 
-    .info-box:hover {
-      transform: translateY(-5px);
-    }
+.main-content {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: var(--light-red);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 30px 0;
+  border-radius: 12px;
+}
 
-    h2 {
-      color: var(--red);
-      font-size: 2em;
-      margin-bottom: 15px;
-    }
+.main-content h2 {
+  font-size: 2.2em;
+  color: var(--red);
+  margin-bottom: 15px;
+}
 
-    h3 {
-      color: var(--maroon);
-      margin-bottom: 10px;
-    }
+.main-content p {
+  font-size: 1.1em;
+  color: #333;
+}
 
-    #services ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    #services ul li {
-      background: var(--light-red);
-      margin: 10px 0;
-      padding: 12px 20px;
-      border-left: 5px solid var(--red);
-      border-radius: 6px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
-
-    form input, form textarea {
-      width: 100%;
-      margin: 12px 0;
-      padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-
-    form button {
-      background-color: var(--red);
-      color: white;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s ease-in-out;
-    }
-
-    form button:hover {
-      background-color: var(--maroon);
-    }
-
-    footer {
-      background-color: var(--maroon);
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-
-    a {
-      color: var(--red);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      #about .info-boxes {
-        flex-direction: column;
-      }
-
-      header h1 {
-        font-size: 2em;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      nav ul li {
-        margin: 8px 0;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <h1>Welcome to Red Cap</h1>
-    <p>Your trusted travel companion for luggage and sahayak services</p>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Enquire Us</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="about" class="container">
-    <h2>About Us</h2>
-    <div class="info-boxes">
-      <div class="info-box">
-        <h3>About Red Cap</h3>
-        <p>
-          Red Cap is a tech-driven platform aimed at modernizing Indian railway <strong>Sahayak</strong> services. With digital booking, transparent pricing, luggage tracking, and welfare-driven policies, Red Cap is making travel easier, fairer, and more secure for millions of passengers across India.
-        </p>
-      </div>
-      <div class="info-box">
-        <h3>About the Founder</h3>
-        <p>
-          <strong>Yashodeep Bhosale</strong>, the visionary founder of Red Cap, is a dynamic and innovative mind driven by a passion for transforming traditional systems through smart technology. Currently pursuing a degree in Electronics and Telecommunications Engineering, Yashodeep combines technical expertise with a deep understanding of real-world challenges faced by everyday commuters.
-        </p>
-        <p>
-          With Red Cap, he aims to revolutionize the Indian railway experience by digitizing <strong>Sahayak</strong> services, promoting fair wages, and ensuring luggage security through a user-friendly mobile platform.
-        </p>
-        <p>
-          Connect on LinkedIn: <a href="https://www.linkedin.com/in/yashodeepbhosale" target="_blank">Yashodeep Bhosale</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="container">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Book a Sahayak for your luggage</li>
-      <li>AI-based pricing estimation</li>
-      <li>Real-time booking updates</li>
-      <li>QR Code-based sahayak service tracking</li>
-    </ul>
-  </section>
-
-  <section id="contact" class="container">
-    <h2>Contact Us</h2>
-    <p>If you have any queries or need assistance, feel free to get in touch.</p>
-    <form action="#" method="POST">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Yashodeep Red Cap. All rights reserved.</p>
-  </footer>
-</body>
-</html>
 
