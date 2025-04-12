@@ -1,86 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Red Cap</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Red Cap - Smart Railway Sahayak Booking</title>
   <style>
+    :root {
+      --red: #e53935;
+      --maroon: #800000;
+      --light-red: #ffe5e5;
+      --dark-maroon: #660000;
+    }
+
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: Arial, sans-serif;
-      scroll-behavior: smooth;
+      background-color: #ffffff;
+      color: #333;
+      overflow-x: hidden;
     }
-    section {
-      padding: 60px 20px;
+
+    header {
+      background-color: var(--red);
+      color: white;
+      padding: 40px 20px;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    .hero {
-      background-color: #fff0f0;
-      height: 100vh;
+
+    header img {
+      width: 80px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    nav ul {
       display: flex;
       justify-content: center;
-      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 25px 0 0;
+      flex-wrap: wrap;
     }
-    .hero-box {
-      background-color: #b30000;
+
+    nav ul li {
+      margin: 10px 20px;
+    }
+
+    nav ul li a {
       color: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1em;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease-in-out;
     }
-    .hero-box button {
-      background-color: white;
-      color: #b30000;
-      border: none;
-      padding: 10px 20px;
-      font-size: 18px;
+
+    nav ul li a:hover {
+      border-color: white;
+    }
+
+    .square-tab {
+      display: inline-block;
+      padding: 20px;
+      background-color: var(--maroon);
+      color: white;
+      font-size: 1.2em;
+      font-weight: bold;
       border-radius: 10px;
-      cursor: pointer;
-      margin-top: 20px;
+      text-align: center;
+      text-decoration: none;
+      margin-top: 40px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      width: 200px;
+      height: 200px;
     }
-    .services {
-      background-color: #fff;
+
+    .square-tab:hover {
+      background-color: var(--dark-maroon);
+      transform: scale(1.1);
     }
-    .about {
-      background-color: #f9f9f9;
+
+    .main-content {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: var(--light-red);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin: 30px 0;
+      border-radius: 12px;
     }
-    .footer {
-      background-color: #b30000;
+
+    .main-content h2 {
+      font-size: 2.2em;
+      color: var(--red);
+      margin-bottom: 15px;
+    }
+
+    .main-content p {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    section {
+      padding: 50px 20px;
+      background-color: var(--light-red);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin: 30px 0;
+      border-radius: 12px;
+    }
+
+    footer {
+      background-color: var(--red);
       color: white;
       padding: 20px;
+      text-align: center;
+      margin-top: 40px;
     }
-    .linkedin-link {
-      color: #0e76a8;
+
+    .social-media {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #f4f4f4;
+      margin-top: 40px;
+    }
+
+    .social-media a {
       text-decoration: none;
-      font-weight: bold;
+      margin: 0 15px;
+      color: var(--maroon);
+      font-size: 1.5em;
+    }
+
+    .social-media a:hover {
+      color: var(--red);
+    }
+
+    .scroll-section {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 20px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <img src="logo.png" alt="Red Cap Logo"/>
+    <h1>Welcome to Red Cap</h1>
+    <p>Your trusted travel companion for luggage and sahayak services</p>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Enquire Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section class="hero">
-    <div class="hero-box">
-      <h1>Red Cap</h1>
-      <p>Book a Sahayak now</p>
-      <button onclick="alert('Booking Feature Coming Soon!')">Book Sahayak</button>
+  <section class="main-content">
+    <h2>Book Your Sahayak Now</h2>
+    <p>Need a helping hand for your luggage? Book a professional Sahayak today to make your journey stress-free.</p>
+    <a href="#services" class="square-tab">Book Sahayak</a>
+  </section>
+
+  <section id="services" class="main-content">
+    <h2>Services Provided by Red Cap</h2>
+    <p>We offer professional luggage handling and sahayak services to ensure a smooth and convenient travel experience.</p>
+    <div class="scroll-section">
+      <ul>
+        <li>Luggage handling</li>
+        <li>Assistance with boarding and deboarding</li>
+        <li>Station navigation</li>
+        <li>Courier services</li>
+        <li>Smart trolley services</li>
+        <li>Custom requests</li>
+      </ul>
     </div>
   </section>
 
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <p>🚶 Book Verified Sahayaks Instantly<br>📦 Luggage Assistance at Stations<br>📱 AI-based Fare Estimation<br>📜 View Booking & Payment History<br>🔒 Secure QR Code Based System</p>
+  <section id="about" class="main-content">
+    <h2>About Us</h2>
+    <div class="scroll-section">
+      <p>Red Cap aims to modernize the railway sahayak system, providing efficient and reliable assistance to passengers traveling across the country. With a tech-driven approach, we make booking and managing services seamless for you.</p>
+    </div>
   </section>
 
-  <section class="about" id="about">
+  <section id="about-red-cap" class="main-content">
     <h2>About Red Cap</h2>
-    <p>Red Cap is a platform to simplify Sahayak bookings at railway stations across India. Our mission is to empower passengers and coolies with smart, transparent, and secure booking.</p>
-    <h3>About the Founder</h3>
-    <p>Yashodeep Bhosale is an innovator passionate about modernizing railway assistance using technology.</p>
-    <a class="linkedin-link" href="https://www.linkedin.com/in/yashodeepbhosale/" target="_blank">Connect on LinkedIn</a>
+    <div class="scroll-section">
+      <p>Founded by Yashodeep Bhosale, Red Cap is on a mission to revolutionize the way sahayak services are provided. We focus on delivering customer-centric solutions that offer convenience, safety, and efficiency.</p>
+    </div>
   </section>
 
-  <section class="footer">
-    <p>© Yashodeep Bhosale. All rights reserved.</p>
+  <section id="founder" class="main-content">
+    <h2>About the Founder</h2>
+    <div class="scroll-section">
+      <p><strong>Yashodeep Bhosale</strong> is the founder of Red Cap. With a passion for making travel more accessible, Yashodeep has integrated modern technology into traditional services to create a more reliable and streamlined travel experience.</p>
+      <p>Connect with Yashodeep on <a href="https://www.linkedin.com/in/yashodeep-bhosale/" target="_blank">LinkedIn</a></p>
+    </div>
   </section>
 
+  <footer>
+    <p>&copy; 2025 Yashodeep Bhosale. All rights reserved.</p>
+  </footer>
+
+  <section class="social-media">
+    <h2>Connect With Us</h2>
+    <a href="https://www.linkedin.com/company/redcap" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/redcap" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/redcap" target="_blank">Facebook</a>
+    <a href="https://twitter.com/redcap" target="_blank">Twitter</a>
+  </section>
 </body>
 </html>
