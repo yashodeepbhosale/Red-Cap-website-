@@ -1,192 +1,193 @@
 :root {
-  --red: #e53935;
-  --maroon: #800000;
-  --light-red: #ffe5e5;
-  --dark-maroon: #660000;
+  --main-color: #ff003c;
+  --accent-color: #ffda00;
+  --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
   margin: 0;
-  background-color: #ffffff;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-  background-color: var(--red);
-  color: white;
-  padding: 50px 20px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+html, body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-gradient);
+  color: #fff;
+  scroll-behavior: smooth;
 }
 
-header img {
-  width: 80px;
-  height: auto;
-  margin-bottom: 20px;
+header.sticky {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 2rem;
 }
 
-header h1 {
-  font-size: 3em;
-  margin: 0;
+.container {
+  max-width: 1200px;
+  margin: auto;
 }
 
-header p {
-  font-size: 1.5em;
-  margin-top: 10px;
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-color);
 }
 
-nav ul {
+.hero {
+  height: 100vh;
   display: flex;
   justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 30px 0 0;
-  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1558980664-bbfb31c5f565?fit=crop&w=1600') no-repeat center/cover;
 }
 
-nav ul li {
-  margin: 10px 20px;
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 0 0 15px #ffda00;
+}
+
+.hero-tagline {
+  font-size: 2rem;
+  margin: 1rem 0;
   font-weight: 600;
-  font-size: 1.1em;
-  padding-bottom: 3px;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease-in-out;
+  color: #fff;
 }
 
-nav ul li a:hover {
-  border-color: white;
-}
-
-/* Updated button styles */
-.book-button {
-  display: inline-block;
-  padding: 18px 35px;
-  background-color: var(--maroon);
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  background: var(--main-color);
   color: white;
-  font-size: 1.3em;
   font-weight: bold;
-  border-radius: 10px;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 40px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  box-shadow: 0 0 15px var(--main-color);
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.book-button:hover {
-  background-color: var(--dark-maroon);
+.btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-/* Adjustments to main content section */
-.main-content {
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   text-align: center;
-  padding: 60px 30px;
-  background-color: var(--light-red);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin: 50px 20px;
+  color: var(--accent-color);
+}
+
+.services, .about, .founder, .socials, footer {
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.service-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  padding: 2rem;
+  border-radius: 10px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.founder-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.founder-image img {
+  width: 300px;
   border-radius: 20px;
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-.main-content:hover {
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+.socials-content {
+  text-align: center;
 }
 
-.main-content h2 {
-  font-size: 2.5em;
-  color: var(--red);
-  margin-bottom: 20px;
+.socials-content a {
+  font-size: 2rem;
+  margin: 0 1rem;
+  color: var(--main-color);
+  transition: color 0.3s ease;
 }
 
-.main-content p {
-  font-size: 1.2em;
-  color: #333;
-  line-height: 1.8;
-  margin-top: 20px;
+.socials-content a:hover {
+  color: var(--accent-color);
 }
 
-/* New style for the footer section */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: var(--dark-maroon);
-  color: white;
+  background: #111;
 }
 
 footer p {
-  margin: 0;
-  font-size: 1em;
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2.3em;
-  }
-
-  header p {
-    font-size: 1.3em;
-  }
-
-  .book-button {
-    font-size: 1.1em;
-    padding: 15px 30px;
-  }
-
-  .main-content {
-    padding: 40px 20px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    padding-left: 0;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  .main-content h2 {
-    font-size: 2em;
-  }
-
-  .main-content p {
-    font-size: 1.1em;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 1.8em;
-  }
-
-  header p {
-    font-size: 1.1em;
-  }
-
-  .book-button {
-    font-size: 1em;
-    padding: 12px 25px;
-  }
-
-  .main-content {
-    padding: 30px 15px;
-  }
-
-  .main-content h2 {
-    font-size: 1.8em;
-  }
-
-  .main-content p {
-    font-size: 1em;
-  }
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }

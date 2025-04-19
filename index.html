@@ -1,228 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Red Cap</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      color: #333;
-      background-color: #fffaf9;
-    }
-
-    header {
-      background-color: #b30000;
-      color: white;
-      padding: 20px 40px;
-      text-align: center;
-      font-size: 36px;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #ffe6e6 40%, #ffcccc);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .hero-box {
-      background-color: white;
-      color: #b30000;
-      padding: 60px 40px;
-      border-radius: 30px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-      max-width: 500px;
-      text-align: center;
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    .hero-box h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero-box p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .hero-box button {
-      background-color: #b30000;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 20px;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .hero-box button:hover {
-      background-color: #800000;
-    }
-
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .services {
-      background-color: #fff;
-    }
-
-    .services h2 {
-      font-size: 36px;
-      color: #b30000;
-      margin-bottom: 20px;
-    }
-
-    .service-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background-color: #ffe6e6;
-      border-radius: 20px;
-      padding: 30px;
-      width: 250px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      color: #b30000;
-      margin-bottom: 10px;
-    }
-
-    .about {
-      background-color: #f2f2f2;
-    }
-
-    .about h2 {
-      color: #b30000;
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    .about-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: start;
-      gap: 50px;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      margin: auto;
-      text-align: left;
-    }
-
-    .about-content p {
-      flex: 1;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .linkedin-link {
-      margin-top: 20px;
-      display: inline-block;
-      color: #0e76a8;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .footer {
-      background-color: #b30000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 16px;
-    }
-
-    @media (max-width: 768px) {
-      .about-content {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Red Cap - Effortless Railway Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>Red Cap</header>
+<header class="sticky">
+  <div class="container">
+    <h1 class="logo">Red Cap</h1>
+  </div>
+</header>
 
-  <section class="hero">
-    <div class="hero-box">
-      <h1>Book a Sahayak Instantly</h1>
-      <p>Your smart luggage assistant at every station</p>
-      <button onclick="alert('Booking feature coming soon!')">Book a Sahayak</button>
-    </div>
-  </section>
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Red Cap</h1>
+    <p class="hero-tagline">Effortless Railway Travel</p>
+    <button class="btn" onclick="scrollToServices()">Explore Services</button>
+  </div>
+</section>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
-      <div class="card">
-        <h3>Instant Booking</h3>
-        <p>Quick and easy booking of Sahayaks with live station selection.</p>
-      </div>
-      <div class="card">
-        <h3>AI Pricing</h3>
-        <p>Smart fare estimation based on luggage type and service time.</p>
-      </div>
-      <div class="card">
-        <h3>Secure QR</h3>
-        <p>Receive a unique QR code for identity and verification on service.</p>
-      </div>
-      <div class="card">
-        <h3>Coolie Dashboard</h3>
-        <p>Coolies can accept or reject bookings from their own panel.</p>
-      </div>
-      <div class="card">
-        <h3>History & Payments</h3>
-        <p>View booking history, past payments, and service records easily.</p>
+<section class="services" id="services">
+  <h2 class="section-title">Our Services</h2>
+  <div class="container service-grid">
+    <div class="service-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>Instant Booking</h3>
+          <p>Book a Sahayak in seconds via our platform.</p>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="about" id="about">
-    <h2>About Us</h2>
-    <div class="about-content">
-      <p><strong>About Red Cap:</strong> Red Cap is India's first digital platform for booking Sahayaks (Coolies) at railway stations. Our mission is to modernize and digitize luggage assistance while ensuring transparency, affordability, and convenience for passengers.</p>
-      <p><strong>About the Founder:</strong> Yashodeep Bhosale is an aspiring engineer and innovator. Passionate about solving real-life problems with tech, he founded Red Cap to empower both railway passengers and hardworking Sahayaks. <a class="linkedin-link" href="https://www.linkedin.com/in/yashodeepbhosale/" target="_blank">Connect on LinkedIn</a></p>
+    <div class="service-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>AI-Based Pricing</h3>
+          <p>Get instant pricing estimates based on your luggage type.</p>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="footer">
-    <p>© Yashodeep Bhosale. All rights reserved.</p>
-  </section>
+<section class="about" id="about">
+  <h2 class="section-title">About Red Cap</h2>
+  <div class="container about-content">
+    <div class="about-text">
+      <p>Red Cap is a digital platform that connects passengers with luggage assistants (Sahayaks) at railway stations for an effortless travel experience. We ensure safe and hassle-free travel with personalized luggage handling services.</p>
+    </div>
+  </div>
+</section>
+
+<section class="founder" id="founder">
+  <h2 class="section-title">About the Founder</h2>
+  <div class="container founder-content">
+    <div class="founder-image">
+      <img src="https://via.placeholder.com/300" alt="Founder Image" />
+    </div>
+    <div class="founder-text">
+      <p>Yashodeep Bhosale, the founder of Red Cap, is passionate about transforming the travel industry through technology. With a deep understanding of logistics and customer needs, Yashodeep has built Red Cap to make travel easier and more convenient for everyone.</p>
+    </div>
+  </div>
+</section>
+
+<section class="socials" id="socials">
+  <h2 class="section-title">Follow Us</h2>
+  <div class="container socials-content">
+    <a href="https://www.linkedin.com/in/yashodeep-bhosale" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/yashodeepbhosale" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-content">
+    <p>&copy; 2025 Yashodeep Bhosale. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  function scrollToServices() {
+    document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
 
 </body>
 </html>
